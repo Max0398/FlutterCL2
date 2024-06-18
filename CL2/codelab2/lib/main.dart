@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(
     const AppStateWidget(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'MiTienda',
+        title: 'Codelab2',
         home: MyStorePage(),
       ),
     ),

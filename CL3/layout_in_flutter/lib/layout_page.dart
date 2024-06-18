@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
-class LayoutPage extends StatelessWidget {
-  const LayoutPage({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Widget Layouts Demo',
-      home: WidgetLayoutsView(),
+      home: LayoutPage(),
     );
+  }
+}
+
+class LayoutPage extends StatelessWidget {
+  const LayoutPage({super.key});
+  
+  @override
+  Widget build(BuildContext context) {
+    return const WidgetLayoutsView();
   }
 }
 
 class WidgetLayoutsView extends StatelessWidget {
   const WidgetLayoutsView({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,28 +46,28 @@ class WidgetLayoutsView extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
-            WidgetLayouts.rowWithSameSizeImages(), // Función para crear una fila con imágenes del mismo tamaño
+            WidgetLayouts.rowWithSameSizeImages(),
             const SizedBox(height: 16.0),
             const Text(
               'Layout con columna de 3 imágenes espaciadas uniformemente verticalmente:',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
-            WidgetLayouts.columnWithEvenlySpacedImages(), // Función para crear una columna con imágenes espaciadas uniformemente verticalmente
+            WidgetLayouts.columnWithEvenlySpacedImages(),
             const SizedBox(height: 16.0),
             const Text(
               'Layout con fila de 3 imágenes espaciadas uniformemente horizontalmente, cada una ocupando 1/3 del espacio:',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
-            WidgetLayouts.rowWithEvenlySpacedImagesExpanded(), // Función para crear una fila con imágenes espaciadas uniformemente horizontalmente, cada una ocupando 1/3 del espacio
+            WidgetLayouts.rowWithEvenlySpacedImagesExpanded(),
             const SizedBox(height: 16.0),
             const Text(
               'Layout con fila de 3 imágenes, donde la segunda imagen ocupa el doble de espacio que las otras:',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
-            WidgetLayouts.rowWithDoubleSizedMiddleImage(), // Función para crear una fila con imágenes, donde la segunda imagen ocupa el doble de espacio que las otras
+            WidgetLayouts.rowWithDoubleSizedMiddleImage(),
           ],
         ),
       ),
@@ -65,7 +76,6 @@ class WidgetLayoutsView extends StatelessWidget {
 }
 
 class WidgetLayouts {
-  // Crea una fila con 3 imágenes del mismo tamaño
   static Widget rowWithSameSizeImages() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -77,7 +87,6 @@ class WidgetLayouts {
     );
   }
 
-  // Crea una columna con 3 imágenes espaciadas uniformemente verticalmente
   static Widget columnWithEvenlySpacedImages() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -89,7 +98,6 @@ class WidgetLayouts {
     );
   }
 
-  // Crea una fila con 3 imágenes espaciadas uniformemente horizontalmente, cada una ocupando 1/3 del espacio
   static Widget rowWithEvenlySpacedImagesExpanded() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -107,7 +115,6 @@ class WidgetLayouts {
     );
   }
 
-  // Crea una fila con 3 imágenes, donde la segunda imagen ocupa el doble de espacio que las otras
   static Widget rowWithDoubleSizedMiddleImage() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -126,11 +133,10 @@ class WidgetLayouts {
     );
   }
 
-  // Método privado para construir las imágenes con el mismo tamaño
   static Widget _buildImage(String imagePath) {
     return SizedBox(
-      width: 100, // Elige el tamaño deseado
-      height: 100, // Elige el tamaño deseado
+      width: 100,
+      height: 100,
       child: Image.asset(
         imagePath,
         fit: BoxFit.cover,
